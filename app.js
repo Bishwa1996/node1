@@ -1,12 +1,14 @@
-/*function sayHello(name){
-    console.log('Hello'+ name);
-}*/
-// sayHello('Bishwa');
-// console.log(window);    ----->undefined
+/*const path = require('path');
+var pathObj = path.parse(__filename);
+console.log(pathObj);*/
 
-// console.log(); ----------->//global object
-// var message();  ----------> local object
+const os = require('os');
+// const { string } = require('querystring');
+var totalMemory = os.totalmem();
+var freeMemory = os.freemem();
+//console.log('Total Memory:' + totalMemory);
 
-const log = require('./logger');
-// console.log(logger)
-log('message');
+// Template string
+//ES6/ ES2015: ECMAScript 6
+console.log(`Total Memory: ${totalMemory}`);
+console.log(`Free Memory: ${freeMemory}`);

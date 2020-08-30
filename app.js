@@ -1,14 +1,22 @@
-/*const path = require('path');
-var pathObj = path.parse(__filename);
-console.log(pathObj);*/
+        //   File system
+/*const fs = require('fs');
+// const files= fs.readdirSync('./');
+// console.log(files);
 
-const os = require('os');
-// const { string } = require('querystring');
-var totalMemory = os.totalmem();
-var freeMemory = os.freemem();
-//console.log('Total Memory:' + totalMemory);
+fs.readdir('./', function(err, files) {
+    if (err) console.log('Error', err);
+    else console.log('Result', files);
+});*/
 
-// Template string
-//ES6/ ES2015: ECMAScript 6
-console.log(`Total Memory: ${totalMemory}`);
-console.log(`Free Memory: ${freeMemory}`);
+        //    Events
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
+
+// Register a listener
+emitter.on('messageLogged', (arg) => {
+    console.log('Listener called', arg);
+});
+
+// Raise an event
+emitter.emit('messageLogged',{id: 1,url: 'http://'});
+// Reg. of listener--->raising an  event becoz if not then it will iterate synchronously..

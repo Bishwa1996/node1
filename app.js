@@ -1,22 +1,18 @@
-        //   File system
-/*const fs = require('fs');
-// const files= fs.readdirSync('./');
-// console.log(files);
+const http = require('http');
+const server = http.createServer((req, res) =>{
+    if (req.url === '/'){
+        res.write('Hello World');
+        res.end();
+    }
 
-fs.readdir('./', function(err, files) {
-    if (err) console.log('Error', err);
-    else console.log('Result', files);
-});*/
-
-        //    Events
-const EventEmitter = require('events');
-const emitter = new EventEmitter();
-
-// Register a listener
-emitter.on('messageLogged', (arg) => {
-    console.log('Listener called', arg);
+    if(req.url === '/api/courses'){
+        res.write(JSON.stringify([1,2,3]));
+        res.end();
+    }
 });
-
-// Raise an event
-emitter.emit('messageLogged',{id: 1,url: 'http://'});
-// Reg. of listener--->raising an  event becoz if not then it will iterate synchronously..
+// server.on('connection',(socket)=>
+// {
+//     console.log('New connection...')
+// });
+server.listen(3000);
+console.log('Listening on port 3000...');
